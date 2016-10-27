@@ -1,0 +1,31 @@
+<div class="alert alert-danger" ng-if="list.showNothingFound() === true">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  <span class="sr-only">Error:</span>
+  Nothing found!
+</div>
+<table ng-if="list.showNothingFound() == false" class="table table-bordered table-hover">
+	<tr>
+		<th>ID</th>
+		<th>Short name</th>
+		<th>Name</th>
+		<th>Description</th>
+		<th>Price: <small>(small)</small></th>
+		<th>Price: <small>(large)</small></th>
+		<th></th>
+	</tr>
+	<tr ng-repeat="item in list.items">
+		<td>{{item.id}}</td>
+		<td>{{item.short_name}}</td>
+		<td>{{item.name}}</td>
+		<td>{{item.description}}</td>
+		<td>{{item.price_small}}</td>
+		<td>{{item.price_large}}</td>
+		<td>
+			<button class="btn btn-danger btn-xs"
+			ng-click="list.onRemove({index: $index});">
+				<i class="glyphicon glyphicon-remove"></i>
+				<span>Don't want this one!</span>
+			</button>	
+		</td>
+	</tr>
+</table>

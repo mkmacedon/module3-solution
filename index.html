@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" ng-app="NarrowItDownApp">
+	<head>
+		<title>Narrow Down Your Menu Choice</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+	</head>
+	<body>
+		<div class="container" ng-controller="NarrowItDownController as vm">
+			<h1>Narrow Down Your Chinese Menu Choice</h1>
+			<div class="row">	
+				<div class="col-md-2">
+					<div class="form-group">
+						<input type="text" 
+						ng-model="vm.searchTerm" 
+						placeholder="Enter search term..." class="form-control">
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group narrow-button">
+						<button class="btn btn-primary" 
+						ng-click="vm.narrowItDown()">Narrow It Down For Me!</button>
+					</div>
+				</div>
+			</div>
+			<!-- found-items should be implemented as a component -->
+			<div class="row">
+				<div class="col-md-12">		
+					<found-items show-alert="vm.showNothingFound" items="vm.found" on-remove="vm.removeItem(index)"></found-items>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="./app.js"></script>
+	</body>
+</html>
